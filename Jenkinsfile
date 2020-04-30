@@ -1,23 +1,19 @@
 pipeline {
     agent any
-     tools {
-        maven 'Local Maven'
-        jdk 'JDK'
-    }
     stages {
         stage('---clean---') {
             steps {
-                 sh 'mvn clean'
+                 bat 'mvn --batch-mode clean'
             }
         }
         stage('--test--') {
             steps {
-                 sh "mvn test"
+                 bat "mvn --batch-mode test"
             }
         }
         stage('--package--') {
             steps {
-                sh "mvn package"
+                bat "mvn --batch-mode package"
             }
         }
     }
